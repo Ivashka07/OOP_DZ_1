@@ -139,3 +139,29 @@ print()
 print(best_student)
 print()
 print(best_student_2)
+print()
+
+# Задание №4
+students = [best_student, best_student_2]
+lecturers = [cool_lecturer, cool_lecturer_2]
+
+def avgStudents(students):
+    length = 0
+    score = 0
+    for i in range(len(students)):
+        for j in range(len(list(students[i].grades.values()))):
+            length += len(list(students[i].grades.values())[j])
+            score += sum(list(students[i].grades.values())[j])
+    return round(score / length, 2)
+
+def avgLectures(lecturers):
+    length = 0
+    score = 0
+    for i in range(len(lecturers)):
+        for j in range(len(list(lecturers[i].grades.values()))):
+            length += len(list(lecturers[i].grades.values())[j])
+            score += sum(list(lecturers[i].grades.values())[j])
+    return round(score / length, 2)
+
+print('Средняя оценка за лекции всех лекторов', avgLectures(lecturers))
+print('Средняя оценка за домашние задания по всем студентам',avgStudents(students))
